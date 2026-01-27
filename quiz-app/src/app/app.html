@@ -1,0 +1,26 @@
+<div class="quiz-container" *ngIf="!finished">
+  <h2>{{ questions[currentIndex].question }}</h2>
+
+  <div class="options">
+    <button
+      *ngFor="let option of questions[currentIndex].options; let i = index"
+      (click)="selectOption(i)"
+      [class.active]="selectedOption === i"
+    >
+      {{ option }}
+    </button>
+  </div>
+
+  <button
+    class="next"
+    (click)="nextQuestion()"
+    [disabled]="selectedOption === null"
+  >
+    Next
+  </button>
+</div>
+
+<div class="result" *ngIf="finished">
+  <h2>Quiz Bitti 🎉</h2>
+  <p>Skorun: {{ score }} / {{ questions.length }}</p>
+</div>

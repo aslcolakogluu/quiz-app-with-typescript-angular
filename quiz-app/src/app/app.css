@@ -1,0 +1,32 @@
+.quiz-container {
+  max-width: 500px;
+  margin: 3rem auto;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+button {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+button.active {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.next {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.result {
+  text-align: center;
+  margin-top: 4rem;
+}
