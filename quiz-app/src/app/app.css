@@ -1,32 +1,45 @@
-.quiz-container {
-  max-width: 500px;
-  margin: 3rem auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.options {
+.app-container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-button {
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  cursor: pointer;
+.header {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
 }
 
-button.active {
-  background-color: #4f46e5;
+.header-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logo {
   color: white;
-}
-
-.next {
-  margin-top: 1rem;
-  width: 100%;
-}
-
-.result {
+  font-size: 2rem;
+  cursor: pointer;
   text-align: center;
-  margin-top: 4rem;
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.main-content {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
 }

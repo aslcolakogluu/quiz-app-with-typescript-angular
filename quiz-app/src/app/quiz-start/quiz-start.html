@@ -1,0 +1,39 @@
+<div class="start-container">
+  <div class="start-card">
+    <h1>🧠 Welcome to the Quiz!</h1>
+    <p class="description">
+      Test your knowledge with {{ totalQuestions }} questions about web development,
+      programming, and frameworks.
+    </p>
+
+    <div class="quiz-info">
+      <div class="info-item">
+        <span class="icon">📝</span>
+        <div>
+          <strong>{{ totalQuestions }} Questions</strong>
+          <p>Multiple choice format</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="icon">⏱️</span>
+        <div>
+          <strong>No Time Limit</strong>
+          <p>Take your time to think</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="icon">🏆</span>
+        <div>
+          <strong>Get Your Score</strong>
+          <p>See results at the end</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="start-button" (click)="startQuiz()">
+      Start Quiz
+    </button>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="question-container">
+  <div class="question-card">
+    <!-- Progress Bar -->
+    <div class="progress-section">
+      <div class="progress-info">
+        <span>Question {{ currentQuestionNumber }} of {{ totalQuestions }}</span>
+        <span>{{ progress | number:'1.0-0' }}%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="progress"></div>
+      </div>
+    </div>
+
+    <!-- Question -->
+    <div class="question-section">
+      <div class="category-badge">{{ currentQuestion.category }}</div>
+      <h2>{{ currentQuestion.question }}</h2>
+    </div>
+
+    <!-- Options -->
+    <div class="options-section">
+      <div
+        *ngFor="let option of currentQuestion.options; let i = index"
+        class="option"
+        [ngClass]="getOptionClass(i)"
+        (click)="selectAnswer(i)"
+      >
+        <span class="option-letter">{{ ['A', 'B', 'C', 'D'][i] }}</span>
+        <span class="option-text">{{ option }}</span>
+
+        <!-- Icons for correct/incorrect -->
+        <span class="option-icon" *ngIf="isAnswered && i === currentQuestion.correctAnswer">✓</span>
+        <span class="option-icon" *ngIf="isAnswered && i === selectedAnswer && !isCorrect">✗</span>
+      </div>
+    </div>
+
+    <!-- Explanation (shown after answering) -->
+    <div class="explanation" *ngIf="isAnswered && currentQuestion.explanation">
+      <strong>💡 Explanation:</strong>
+      <p>{{ currentQuestion.explanation }}</p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-section">
+      <button
+        class="submit-button"
+        *ngIf="!isAnswered"
+        (click)="submitAnswer()"
+        [disabled]="selectedAnswer === null"
+      >
+        Submit Answer
+      </button>
+
+      <button
+        class="next-button"
+        *ngIf="isAnswered"
+        (click)="nextQuestion()"
+      >
+        {{ currentQuestionNumber < totalQuestions ? 'Next Question' : 'See Results' }}
+      </button>
+    </div>
+  </div>
+</div>
